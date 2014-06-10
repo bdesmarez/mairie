@@ -7,11 +7,17 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     -# Modernizr is required for Zurb Foundation
     = javascript_include_tag 'vendor/modernizr'
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', params[:controller], 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
     %header
       = render 'layouts/navigation'
     %main{:role => "main"}
-      = render 'layouts/messages'
-      = yield
+      .row
+        .small-12.large-12
+          = render 'layouts/messages'
+          = yield
+    %footer
+      .row
+        .small-12.larger-12
+          © Benjamin Desmarez 2014 - All rights reserved.

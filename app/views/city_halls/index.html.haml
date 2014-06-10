@@ -1,0 +1,26 @@
+%h1 Listing City Halls
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th City
+      %th Postalcode
+      %th Logo
+      %th Action
+  %tbody
+    - @city_halls.each do |city_hall|
+      %tr
+        %td= city_hall.name
+        %td= city_hall.city
+        %td= city_hall.postalCode
+        %td= image_tag city_hall.logo.url(:thumb)
+        %td
+          %ul.button-group.radius{:style => "margin-bottom: -20px"}
+            %li= link_to 'Show', city_hall, :class => "button tiny"
+            %li= link_to 'Edit', edit_city_hall_path(city_hall), :class => "button tiny success"
+            %li= link_to 'Destroy', city_hall, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "button alert tiny"
+
+%br
+
+= link_to 'New City hall', new_city_hall_path, :class => "button round"

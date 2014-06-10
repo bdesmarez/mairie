@@ -1,0 +1,22 @@
+%h1 Listing Templates
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Body
+      %th Action
+  %tbody
+    - @templates.each do |template|
+      %tr
+        %td= template.name
+        %td= truncate(template.body, :length => 40)
+        %td
+          %ul.button-group.radius{:style => "margin-bottom: -20px"}
+            %li= link_to 'Show', template, :class => "button tiny"
+            %li= link_to 'Edit', edit_template_path(template), :class => "button success tiny"
+            %li= link_to 'Destroy', template, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "button alert tiny"
+
+%br
+
+= link_to 'New Template', new_template_path, :class => "button round"

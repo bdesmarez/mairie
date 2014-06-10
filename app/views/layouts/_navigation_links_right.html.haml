@@ -1,0 +1,19 @@
+- if user_signed_in?
+	%li.has-dropdown
+		=link_to "#" do
+			%i.fi-torso
+			=current_user.name
+		%ul.dropdown
+			%li
+				=link_to edit_user_registration_path do
+					%i.fi-widget
+					='Edit account'
+			%li
+				=link_to destroy_user_session_path, :method=>'delete' do
+					%i.fi-eject
+					= 'Logout'
+- else
+	%li
+		= link_to new_user_session_path do
+			%i.fi-torso
+			= 'Login'

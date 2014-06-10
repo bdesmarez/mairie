@@ -1,0 +1,13 @@
+= simple_form_for(@city_hall) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :city
+    = f.input :postalCode
+    = f.file_field :logo
+
+  .form-actions
+    = f.button :submit
+    = link_to 'Cancel', @city_hall, :class => "button radius alert"
+

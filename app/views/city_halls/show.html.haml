@@ -1,0 +1,14 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @city_hall.name
+%p
+  %b City:
+  = @city_hall.city
+%p
+  %b Postalcode:
+  = @city_hall.postalCode
+
+= link_to 'Edit', edit_city_hall_path(@city_hall), :class => "button radius"
+= link_to 'Back', city_halls_path, :class => "button radius alert"

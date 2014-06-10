@@ -1,0 +1,2 @@
+module MailingSchedulesHelper
+end

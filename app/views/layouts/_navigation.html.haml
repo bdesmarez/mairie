@@ -3,10 +3,12 @@
 %nav.top-bar{"data-topbar" => true}
   %ul.title-area
     %li.name
-      = link_to 'Home', root_path
+      = link_to 'Mailing', root_path
     %li.toggle-topbar.menu-icon
       %a{:href => "#"}
         Menu
   .top-bar-section
-    %ul
-      = render 'layouts/navigation_links'
+    %ul.left
+      = render 'layouts/navigation_links_left'
+    %ul.right
+      = render 'layouts/navigation_links_right'

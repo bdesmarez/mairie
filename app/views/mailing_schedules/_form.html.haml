@@ -1,0 +1,13 @@
+= simple_form_for(@mailing_schedule) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.association :template
+    = f.association :city_hall
+    = f.input :date
+    = f.input :content
+
+  .form-actions
+    = f.button :submit
+    = link_to 'Cancel', @mailing_schedule, :class => "button radius alert"

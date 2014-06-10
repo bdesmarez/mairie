@@ -1,0 +1,17 @@
+= simple_form_for(@template) do |f|
+	= f.error_notification
+	.form-inputs
+		= f.input :name
+		= f.input :body,:input_html => {:rows => 30}
+	.form-actions
+		= f.button :submit
+		= link_to 'Cancel', @template, :class => "button radius alert"
+/ :javascript
+/ 	var editor = CodeMirror.fromTextArea(document.getElementById("template_body2"), {
+/ 		mode: "application/x-ejs",
+/ 		value: "todo !",
+/ 		lineNumbers: true,
+/ 		styleActiveLine: true,
+/ 		matchBrackets: true,
+/ 		theme: "monokai"
+/ 	});

@@ -1,0 +1,28 @@
+%h1 Listing mailing_schedules
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Template
+      %th City hall
+      %th Date
+      %th Content
+      %th Action
+  %tbody
+    - @mailing_schedules.each do |mailing_schedule|
+      %tr
+        %td= mailing_schedule.name
+        %td= mailing_schedule.template
+        %td= mailing_schedule.city_hall
+        %td= mailing_schedule.date
+        %td= mailing_schedule.content
+        %td
+          %ul.button-group.radius{:style => "margin-bottom: -20px"}
+            %li= link_to 'Show', mailing_schedule, :class => "button tiny"
+            %li= link_to 'Edit', edit_mailing_schedule_path(mailing_schedule), :class => "button success tiny"
+            %li= link_to 'Destroy', mailing_schedule, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "button alert tiny"
+
+%br
+
+= link_to 'New Mailing schedule', new_mailing_schedule_path, :class => "button round"

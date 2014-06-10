@@ -1,5 +1,6 @@
 // import the CSS framework
 @import "foundation";
+@import 'foundation-icons';
 
 // override for the 'Home' navigation link
 .top-bar .name {
@@ -41,7 +42,20 @@
 main {
   @include twelve-columns;
   background-color: #eee;
+  padding: 10px;
   }
+footer {
+  @include twelve-columns;
+  background-color: #085a78;
+  padding: 15px 0 15px 0;
+  color: #FFFFFF;
+  font-size: 10px;
+}
+
+body {
+  background-color: #333;
+}
+
 section {
   @extend .row;
   margin-top: 20px;

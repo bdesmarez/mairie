@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @mailing_schedule.name
+%p
+  %b Template:
+  = @mailing_schedule.template
+%p
+  %b City hall:
+  = @mailing_schedule.city_hall
+%p
+  %b Date:
+  = @mailing_schedule.date
+%p
+  %b Content:
+  = @mailing_schedule.content
+
+= link_to 'Edit', edit_mailing_schedule_path(@mailing_schedule)
+\|
+= link_to 'Back', mailing_schedules_path
