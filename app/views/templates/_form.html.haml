@@ -2,10 +2,15 @@
 	= f.error_notification
 	.form-inputs
 		= f.input :name
-		= f.input :body,:input_html => {:rows => 30}
+		= f.input :body,:input_html => {:rows => 30, :class => "wysihtml5"}
 	.form-actions
 		= f.button :submit
 		= link_to 'Cancel', @template, :class => "button radius alert"
+
+:javascript
+	$(document).ready(function(){
+		$('.wysihtml5').wysihtml5();
+	})
 / :javascript
 / 	var editor = CodeMirror.fromTextArea(document.getElementById("template_body2"), {
 / 		mode: "application/x-ejs",

@@ -20,6 +20,7 @@ gem 'unicorn'
 gem 'unicorn-rails'
 gem 'paperclip'
 # gem 'mercury-rails', :git => "https://github.com/jejacks0n/mercury.git"
+gem 'foundation-wysihtml5-rails'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]

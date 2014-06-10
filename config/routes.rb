@@ -1,6 +1,6 @@
 Mailing::Application.routes.draw do
-  mount Mercury::Engine => '/'
-  Mercury::Engine.routes
+  # mount Mercury::Engine => '/'
+  # Mercury::Engine.routes
   resources :mailing_schedules
 
   resources :templates
