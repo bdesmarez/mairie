@@ -1,1 +1,1 @@
-Rails.application.config.assets.precompile += %w( templates.js )
+Rails.application.config.assets.precompile += %w( templates.js mailer_responsive.css )

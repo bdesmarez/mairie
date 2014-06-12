@@ -2,21 +2,36 @@
 	= f.error_notification
 	.form-inputs
 		= f.input :name
+		#wysihtml5-toolbar(style="display: none;")
+			%a(data-wysihtml5-command="bold") bold
+			%a(data-wysihtml5-command="insertHTML" data-wysihtml5-command-value="<blockquote>foobar</blockquote>") insert quote
+			%a(data-wysihtml5-action="change_view" href="javascript:;" unselectable="on") switch to html view
+		  
 		= f.input :body,:input_html => {:rows => 30, :class => "wysihtml5"}
 	.form-actions
 		= f.button :submit
 		= link_to 'Cancel', @template, :class => "button radius alert"
 
-:javascript
-	$(document).ready(function(){
-		$('.wysihtml5').wysihtml5();
-	})
 / :javascript
-/ 	var editor = CodeMirror.fromTextArea(document.getElementById("template_body2"), {
-/ 		mode: "application/x-ejs",
-/ 		value: "todo !",
-/ 		lineNumbers: true,
-/ 		styleActiveLine: true,
-/ 		matchBrackets: true,
-/ 		theme: "monokai"
-/ 	});
+/ 	$(document).ready(function(){
+/ 		$('.wysihtml5').wysihtml5({
+/ 			"size": 'tiny',
+/ 			"font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
+/ 			"emphasis": true, //Italics, bold, etc. Default true
+/ 			"lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+/ 			"html": true, //Button which allows you to edit the generated HTML. Default false
+/ 			"link": true, //Button to insert a link. Default true
+/ 			"image": true, //Button to insert an image. Default true,
+/ 			"color": true //Button to change color of font
+/ 		});
+/ 	})
+/ 	$(document).on('page:load', function(){
+/ 		window['rangy'].initialized = false
+/ 	})
+
+:javascript
+	var editor = new wysihtml5.Editor("template_body", { // id of textarea element
+		toolbar:      "wysihtml5-toolbar", // id of toolbar element
+		stylesheets:  "<%= stylesheet_path('wysiwyg') %>", // optional, css to style the editor's content
+		parserRules:  wysihtml5ParserRules // defined in parser rules set
+	});

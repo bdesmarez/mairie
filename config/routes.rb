@@ -4,6 +4,7 @@ Mailing::Application.routes.draw do
   resources :mailing_schedules
 
   resources :templates
+  match "templates/preview/:id" => "templates#preview", :via => :get, :as => :template_preview
 
   resources :city_halls
 

@@ -14,8 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require foundation
-//= require foundation-wysihtml5
-//= require foundation-wysihtml5/locales/fr-FR
+//= require wysihtml5
+//= require parser_rules/advanced
+//# require foundation-wysihtml5
+//# require foundation-wysihtml5/locales/fr-FR
 //# require_tree .
 $(function() {
   $(document).foundation();

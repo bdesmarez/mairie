@@ -1,1 +1,1 @@
-//= require_tree ./codemirror
+//= require_tree

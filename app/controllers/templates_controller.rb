@@ -1,5 +1,5 @@
 class TemplatesController < ApplicationController
-  before_action :set_template, only: [:show, :edit, :update, :destroy]
+  before_action :set_template, only: [:show, :edit, :update, :destroy, :preview]
 
   # GET /templates
   # GET /templates.json
@@ -35,6 +35,10 @@ class TemplatesController < ApplicationController
         format.json { render json: @template.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def preview
+    render layout: false 
   end
 
   # PATCH/PUT /templates/1
