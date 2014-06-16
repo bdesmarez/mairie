@@ -12,7 +12,7 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
-# gem 'font-awesome-sass'
+gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'mysql2'
 gem 'pundit'
@@ -20,9 +20,10 @@ gem 'simple_form'
 gem 'unicorn'
 gem 'unicorn-rails'
 gem 'paperclip'
-# gem 'mercury-rails', :git => "https://github.com/jejacks0n/mercury.git"
+
 # gem 'foundation-wysihtml5-rails'
 gem 'wysihtml5-rails'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]

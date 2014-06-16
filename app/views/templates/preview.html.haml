@@ -1,2 +1,7 @@
-= stylesheet_link_tag 'mailer_responsive'
+%style(tag="text/css" data-immutable)
+	= render inline: Mailing::Application.assets.find_asset('mailer_responsive_media.css').body
+
+%style(type="text/css")
+	= render inline: Mailing::Application.assets.find_asset('mailer_responsive.css').body
+    
 = @template.body.html_safe
