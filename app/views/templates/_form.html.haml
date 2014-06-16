@@ -12,29 +12,30 @@
 		= f.button :submit
 		= link_to 'Cancel', @template, :class => "button radius alert"
 
-/ :javascript
-/ 	$(document).ready(function(){
-/ 		$('.wysihtml5').wysihtml5({
-/ 			"size": 'tiny',
-/ 			"font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
-/ 			"emphasis": true, //Italics, bold, etc. Default true
-/ 			"lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
-/ 			"html": true, //Button which allows you to edit the generated HTML. Default false
-/ 			"link": true, //Button to insert a link. Default true
-/ 			"image": true, //Button to insert an image. Default true,
-/ 			"color": true //Button to change color of font
-/ 		});
-/ 	})
-/ 	$(document).on('page:load', function(){
-/ 		window['rangy'].initialized = false
-/ 	})
-
 :javascript
-	var editor = new wysihtml5.Editor("template_body", { // id of textarea element
-		toolbar:      "wysihtml5-toolbar", // id of toolbar element
-		stylesheets:  ["#{stylesheet_path('mailer_responsive')}","#{stylesheet_path('mailer_responsive_media')}"], // optional, css to style the editor's content
-		parserRules:  wysihtml5ParserRules, // defined in parser rules set
+	$(document).ready(function(){
+		$('.wysihtml5').wysihtml5({
+			"size": 'tiny',
+			"stylesheets":  ["#{stylesheet_path('mailer_responsive')}","#{stylesheet_path('mailer_responsive_media')}"], // optional, css to style the editor's content
+			"font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
+			"emphasis": true, //Italics, bold, etc. Default true
+			"lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+			"html": true, //Button which allows you to edit the generated HTML. Default false
+			"link": true, //Button to insert a link. Default true
+			"image": true, //Button to insert an image. Default true,
+			"color": true //Button to change color of font
+		});
+	})
+	$(document).on('page:load', function(){
+		window['rangy'].initialized = false
+	})
 
-		"html": true,
-		"emphasis": true
-	});
+/ :javascript
+/ 	var editor = new wysihtml5.Editor("template_body", { // id of textarea element
+/ 		toolbar:      "wysihtml5-toolbar", // id of toolbar element
+/ 		stylesheets:  ["#{stylesheet_path('mailer_responsive')}","#{stylesheet_path('mailer_responsive_media')}"], // optional, css to style the editor's content
+/ 		parserRules:  wysihtml5ParserRules, // defined in parser rules set
+
+/ 		"html": true,
+/ 		"emphasis": true
+/ 	});

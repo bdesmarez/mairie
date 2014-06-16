@@ -21,8 +21,8 @@ gem 'unicorn'
 gem 'unicorn-rails'
 gem 'paperclip'
 
-# gem 'foundation-wysihtml5-rails'
-gem 'wysihtml5-rails'
+gem 'foundation-wysihtml5-rails', :git => "https://github.com/bdesmarez/foundation-wysihtml5-rails.git"
+# gem 'wysihtml5-rails'
 
 group :development do
   gem 'better_errors'
