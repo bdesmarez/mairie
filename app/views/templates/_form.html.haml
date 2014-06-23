@@ -7,10 +7,11 @@
 			%a(data-wysihtml5-command="insertHTML" data-wysihtml5-command-value="<blockquote>foobar</blockquote>") insert quote
 			%a(data-wysihtml5-action="change_view" href="javascript:;" unselectable="on") switch to html view
 		  
-		= f.input :body,:input_html => {:rows => 30, :class => "wysihtml5"}
+		= f.input :body,:input_html => {:rows => 40, :class => "wysihtml5"}
 	.form-actions
 		= f.button :submit
 		= link_to 'Cancel', @template, :class => "button radius alert"
+		= link_to 'Preview', template_preview_path(@template), target: "_blank", :class => "button radius success right" unless @template.id.blank?
 
 :javascript
 	$(document).ready(function(){
@@ -26,16 +27,8 @@
 			"color": true //Button to change color of font
 		});
 	})
+
+
 	$(document).on('page:load', function(){
 		window['rangy'].initialized = false
 	})
-
-/ :javascript
-/ 	var editor = new wysihtml5.Editor("template_body", { // id of textarea element
-/ 		toolbar:      "wysihtml5-toolbar", // id of toolbar element
-/ 		stylesheets:  ["#{stylesheet_path('mailer_responsive')}","#{stylesheet_path('mailer_responsive_media')}"], // optional, css to style the editor's content
-/ 		parserRules:  wysihtml5ParserRules, // defined in parser rules set
-
-/ 		"html": true,
-/ 		"emphasis": true
-/ 	});

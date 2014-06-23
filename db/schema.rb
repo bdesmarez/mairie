@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603110046) do
+ActiveRecord::Schema.define(version: 20140617210626) do
 
   create_table "city_halls", force: true do |t|
     t.string   "name"
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(version: 20140603110046) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "snapshot_file_name"
+    t.string   "snapshot_content_type"
+    t.integer  "snapshot_file_size"
+    t.datetime "snapshot_updated_at"
   end
 
   add_index "mailing_schedules", ["city_hall_id"], name: "index_mailing_schedules_on_city_hall_id", using: :btree
@@ -43,6 +47,10 @@ ActiveRecord::Schema.define(version: 20140603110046) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "snapshot_file_name"
+    t.string   "snapshot_content_type"
+    t.integer  "snapshot_file_size"
+    t.datetime "snapshot_updated_at"
   end
 
   create_table "users", force: true do |t|

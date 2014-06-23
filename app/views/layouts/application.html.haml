@@ -5,6 +5,7 @@
     %title= content_for?(:title) ? yield(:title) : 'Mailing'
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Mailing'}"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag params[:controller]
     -# Modernizr is required for Zurb Foundation
     = javascript_include_tag 'vendor/modernizr'
     = javascript_include_tag 'application', params[:controller], 'data-turbolinks-track' => true
@@ -14,10 +15,16 @@
       = render 'layouts/navigation'
     %main{:role => "main"}
       .row
-        .small-12.large-12
+        .small-12.large-12.columns.large-centered
           = render 'layouts/messages'
           = yield
     %footer
       .row
-        .small-12.larger-12
+        .small-12.larger-12.columns
           © Benjamin Desmarez 2014 - All rights reserved.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

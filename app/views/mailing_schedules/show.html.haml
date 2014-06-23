@@ -1,21 +1,23 @@
-%p#notice= notice
-
-%p
-  %b Name:
+%h2
   = @mailing_schedule.name
+%br
 %p
-  %b Template:
-  = @mailing_schedule.template
+  %b
+    Template: 
+  = @mailing_schedule.template.name
 %p
-  %b City hall:
-  = @mailing_schedule.city_hall
+  %b
+    City Hall: 
+  = @mailing_schedule.city_hall.name
 %p
-  %b Date:
+  %b
+    Date: 
   = @mailing_schedule.date
-%p
-  %b Content:
-  = @mailing_schedule.content
 
-= link_to 'Edit', edit_mailing_schedule_path(@mailing_schedule)
-\|
-= link_to 'Back', mailing_schedules_path
+= image_tag @mailing_schedule.snapshot
+
+%br
+%br
+
+= link_to 'Edit', edit_mailing_schedule_path(@mailing_schedule), :class => "button radius"
+= link_to 'Back', mailing_schedules_path, :class => "button radius alert"

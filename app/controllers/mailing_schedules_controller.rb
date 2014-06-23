@@ -1,4 +1,5 @@
 class MailingSchedulesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_mailing_schedule, only: [:show, :edit, :update, :destroy]
 
   # GET /mailing_schedules
@@ -28,6 +29,7 @@ class MailingSchedulesController < ApplicationController
 
     respond_to do |format|
       if @mailing_schedule.save
+        upload_image(@mailing_schedule)
         format.html { redirect_to @mailing_schedule, notice: 'Mailing schedule was successfully created.' }
         format.json { render :show, status: :created, location: @mailing_schedule }
       else
@@ -42,6 +44,7 @@ class MailingSchedulesController < ApplicationController
   def update
     respond_to do |format|
       if @mailing_schedule.update(mailing_schedule_params)
+        upload_image(@mailing_schedule)
         format.html { redirect_to @mailing_schedule, notice: 'Mailing schedule was successfully updated.' }
         format.json { render :show, status: :ok, location: @mailing_schedule }
       else
@@ -69,6 +72,19 @@ class MailingSchedulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mailing_schedule_params
-      params.require(:mailing_schedule).permit(:name, :template_id, :city_hall_id, :date, :content)
+      params.require(:mailing_schedule).permit(:name, :template_id, :city_hall_id, :date, :content, :snapshot)
+    end
+
+    def upload_image(model)
+      html  = render_to_string('mailing_schedules/preview' ,:layout => false)
+      kit   = IMGKit.new(html)
+      img   = kit.to_img(:png)
+      file  = Tempfile.new(["template_#{model.id}", '.png'], 'tmp',
+                         :encoding => 'ascii-8bit')
+      file.write(img)
+      file.flush
+      model.snapshot = file
+      model.save!
+      file.unlink
     end
 end

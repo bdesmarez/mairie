@@ -10,7 +10,8 @@
     - @templates.each do |template|
       %tr
         %td= template.name
-        %td= truncate(template.body, :length => 40)
+        / %td= truncate(template.body, :length => 40)
+        %td.text-center= image_tag template.snapshot(:medium)
         %td
           %ul.button-group.radius{:style => "margin-bottom: -20px"}
             %li= link_to 'Show', template, :class => "button tiny"

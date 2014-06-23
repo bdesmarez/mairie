@@ -13,10 +13,10 @@
     - @mailing_schedules.each do |mailing_schedule|
       %tr
         %td= mailing_schedule.name
-        %td= mailing_schedule.template
-        %td= mailing_schedule.city_hall
+        %td= mailing_schedule.template.name
+        %td= mailing_schedule.city_hall.name
         %td= mailing_schedule.date
-        %td= mailing_schedule.content
+        %td.text-center= image_tag mailing_schedule.snapshot(:medium)
         %td
           %ul.button-group.radius{:style => "margin-bottom: -20px"}
             %li= link_to 'Show', mailing_schedule, :class => "button tiny"

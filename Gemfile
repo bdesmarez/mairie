@@ -19,7 +19,12 @@ gem 'pundit'
 gem 'simple_form'
 gem 'unicorn'
 gem 'unicorn-rails'
+
+# Pieces jointes : images
 gem 'paperclip'
+
+#Snapshots
+gem 'imgkit'
 
 gem 'foundation-wysihtml5-rails', :git => "https://github.com/bdesmarez/foundation-wysihtml5-rails.git"
 # gem 'wysihtml5-rails'

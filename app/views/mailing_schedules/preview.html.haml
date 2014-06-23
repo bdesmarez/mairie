@@ -1,0 +1,7 @@
+%style(tag="text/css" data-immutable)
+	= render inline: Mailing::Application.assets.find_asset('mailer_responsive_media.css').body
+
+%style(type="text/css")
+	= render inline: Mailing::Application.assets.find_asset('mailer_responsive.css').body
+    
+= @mailing_schedule.content.html_safe

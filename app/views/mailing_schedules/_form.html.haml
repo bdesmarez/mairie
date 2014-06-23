@@ -1,13 +1,36 @@
 = simple_form_for(@mailing_schedule) do |f|
   = f.error_notification
-
-  .form-inputs
-    = f.input :name
-    = f.association :template
-    = f.association :city_hall
-    = f.input :date
-    = f.input :content
+  .row
+    .large-4.columns
+      .form-inputs
+        = f.input :name
+        = f.association :template
+        = f.association :city_hall
+        = f.input :date, :input_html => {:class => 'small-2 large-2'}
+    .large-8.columns
+      .form-inputs
+        = f.input :content, :input_html => {:rows => 40, :class => "wysihtml5"}
 
   .form-actions
     = f.button :submit
     = link_to 'Cancel', @mailing_schedule, :class => "button radius alert"
+
+:javascript
+  $(document).ready(function(){
+    $('.wysihtml5').wysihtml5({
+      "size": 'tiny',
+      "stylesheets":  ["#{stylesheet_path('mailer_responsive')}","#{stylesheet_path('mailer_responsive_media')}"], // optional, css to style the editor's content
+      "font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
+      "emphasis": true, //Italics, bold, etc. Default true
+      "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+      "html": true, //Button which allows you to edit the generated HTML. Default false
+      "link": true, //Button to insert a link. Default true
+      "image": true, //Button to insert an image. Default true,
+      "color": true //Button to change color of font
+    });
+  })
+
+
+  $(document).on('page:load', function(){
+    window['rangy'].initialized = false
+  })

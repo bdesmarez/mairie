@@ -1,4 +1,5 @@
 class CityHallsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_city_hall, only: [:show, :edit, :update, :destroy]
 
   # GET /city_halls

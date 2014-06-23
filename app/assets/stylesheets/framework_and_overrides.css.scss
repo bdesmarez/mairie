@@ -37,6 +37,11 @@
   @extend .button;
   @extend .radius;
   }
+
+.row {
+    max-width: 1280px;
+}
+
 // apply styles to HTML elements
 // to make views framework-neutral
 main {
@@ -47,7 +52,7 @@ main {
 footer {
   @include twelve-columns;
   background-color: #085a78;
-  padding: 15px 0 15px 0;
+  padding: 25px 10px 25px 10px;
   color: #FFFFFF;
   font-size: 10px;
 }
