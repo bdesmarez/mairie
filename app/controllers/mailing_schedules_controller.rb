@@ -1,6 +1,6 @@
 class MailingSchedulesController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_mailing_schedule, only: [:show, :edit, :update, :destroy]
+  before_action :set_mailing_schedule, only: [:show, :edit, :update, :destroy, :preview]
 
   # GET /mailing_schedules
   # GET /mailing_schedules.json
@@ -20,6 +20,10 @@ class MailingSchedulesController < ApplicationController
 
   # GET /mailing_schedules/1/edit
   def edit
+  end
+
+  def preview
+    render layout: false 
   end
 
   # POST /mailing_schedules
